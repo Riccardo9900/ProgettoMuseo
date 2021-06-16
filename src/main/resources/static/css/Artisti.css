@@ -1,0 +1,22 @@
+section {
+  display: flex;
+  flex-direction: column;
+  background-color: lightGrey;
+  margin-top: 3%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+h1 {
+  text-align: center;
+  }
+  
+ul {
+	margin-left: 10%;
+}
+
+li {
+  font-size: 125%;
+  margin-top: 4%;
+  marign-left: 5%;
+}

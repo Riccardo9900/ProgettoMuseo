@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='Artisti')">
+</head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<nav th:replace="fragments/base.html :: nav"></nav>
+	<section>
+		<div>
+			<h1>Lista di Artisti</h1>
+			<ul>
+				<li th:each="artista : ${artisti}"><a
+					th:href="@{'/artista' + '/' + ${artista.id}}"
+					th:text="|${artista.nome} ${artista.cognome}|">Paolo Rossi</a></li>
+			</ul>
+		</div>
+	</section>
+	<footer th:replace="fragments/base.html :: fondoPagina"></footer>
+</body>
+</html>

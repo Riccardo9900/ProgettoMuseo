@@ -1,0 +1,44 @@
+section {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: lightGrey;
+  margin-top: 3%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#titolocollezione {
+  font-size: 180%;
+  text-align: center;
+  margin-top: 2%;
+}
+
+#descrizione {
+	margin-top: 2%;
+	text-align:center;
+	color: black;
+}
+
+div.opera {
+  margin-top: 2%;
+  margin-left: 8%;
+  width: 100%;
+  display: flex;
+}
+
+#immagineOpera {
+	width: 15%;
+	height: 15%;
+}
+
+#titoloOpera {
+	margin-top: 3.5%;
+	margin-left: 10%;
+}
+
+#curatore {
+  margin-top: 3%;
+  text-align: center;
+  font-style: italic;
+}

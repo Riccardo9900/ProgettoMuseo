@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:fragment="headerfiles(title)">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link th:href="@{/css/Base.css}" rel="stylesheet">
+<link th:href="@{'/css/'+${title}+'.css'}" rel="stylesheet">
+<title th:text="${title}"></title>
+</head>
+<body>
+	<header th:fragment="intestazione">
+		<div id="Museo">
+			<strong id="museo"><a class="header" th:href="@{'/'}">MUSEO
+					OPERE CLASSICHE</a></strong>
+		</div>
+		<div id="LogineRegistrazione">
+			<div sec:authorize="isAnonymous()" id="LoginRegistrazione">
+				<em><a class="header" th:href="@{'/login'}">Login</a></em>
+			</div>
+			<div sec:authorize="isAnonymous()" id="LoginRegistrazione">
+				<em><a class="header" th:href="@{'/register'}">Registrati</a></em>
+			</div>
+			<div sec:authorize="isAuthenticated()" id="LoginRegistrazione">
+				<em><a class="header" th:href="@{'/logout'}">Logout</a></em>
+			</div>
+		</div>
+	</header>
+	<nav th:fragment="nav">
+		<div>
+			<strong><a class="navigazione" th:href="@{/artista}">Artisti</a></strong>
+		</div>
+		<div>
+			<strong><a class="navigazione" th:href="@{'/collezione'}">Collezioni</a></strong>
+		</div>
+		<div>
+			<strong>Informazioni</strong>
+		</div>
+		<div>
+			<strong>Contatti</strong>
+		</div>
+	</nav>
+	<footer th:fragment="fondoPagina">
+		<small id="crediti">©2021 Progetto Sistemi informativi su web
+			Riccardo Spizzichino </small>
+	</footer>
+</body>
+</html>

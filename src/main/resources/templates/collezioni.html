@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='Collezioni')"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<nav th:replace="fragments/base.html :: nav"></nav>
+	<section>
+	<div>
+    	<h1>Collezioni presenti nel museo</h1>
+		<ul>
+			<li th:each="collezione : ${collezioni}"> 
+				   <a th:href="@{'/collezione' + '/' + ${collezione.id}}" 
+				   th:text="${collezione.nome}">Art Noveau</a>
+			</li>
+		</ul>
+	</div>
+	</section>
+	<footer th:replace="fragments/base.html :: fondoPagina"></footer>
+</body>
+</html>

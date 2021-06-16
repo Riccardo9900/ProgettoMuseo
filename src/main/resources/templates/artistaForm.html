@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments/base.html :: headerfiles(title='Form')">
+</head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<nav th:replace="fragments/base.html :: nav"></nav>
+	<section>
+		<div id="corpo">
+			<h1>Inserisci i dati dell'artista</h1>
+			<form th:action="@{'/artista/' + *{id}}" method="POST"
+				th:object="${artista}">
+				<div>
+					<div>
+						<span>Nome:</span> <span><input type="text"
+							th:field="*{nome}" /></span> <span th:if="${#fields.hasErrors('nome')}"
+							th:errors="*{nome}" th:style="'color:red'"></span>
+					</div>
+					<div>
+						<span>Cognome:</span> <span><input type="text"
+							th:field="*{cognome}" /></span> <span
+							th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"
+							th:style="'color:red'"></span>
+					</div>
+					<div>
+						<span>Data nascita:</span> <span><input type="date"
+							th:value="*{dataDiNascita}" th:field="*{dataDiNascita}" /></span>
+					</div>
+					<div>
+						<span>Luogo nascita:</span> <span><input type="text"
+							th:field="*{luogoDiNascita}" /></span>
+					</div>
+					<div>
+						<span>Data morte: (non obbligatorio)</span> <span><input
+							type="date" th:value="*{dataDiMorte}" th:field="*{dataDiMorte}" /></span>
+					</div>
+					<div>
+						<span>Luogo morte: (non obbligatorio)</span> <span><input
+							type="text" th:field="*{luogoDiMorte}" /></span>
+					</div>
+					<div>
+						<span>Nazionalita:</span> <span><input type="text"
+							th:field="*{nazionalita}" /></span>
+					</div>
+					<div>
+						<span>Biografia: (max = 1145)</span> <span><input
+							type="text" th:field="*{biografia}" /></span>
+					</div>
+					<div>
+						<span><button type="submit">Invia</button></span>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+</body>
+</html>

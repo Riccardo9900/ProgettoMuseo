@@ -1,0 +1,96 @@
+a.header {
+	text-decoration: none;
+	color: white;
+}
+
+a.header:hover {
+	color: white;
+}
+
+a.navigazione {
+	text-decoration: none;
+	color: black;
+}
+
+a.navigazione:hover {
+	color: grey;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	color: blue;
+}
+
+body {
+  background-image: url(https://www.musei.abruzzo.beniculturali.it/wp-content/uploads/2016/01/Munda-Laquila-1024x418.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Arial;
+  height: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 40px;
+  background-color: white;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#Museo {
+  margin: 18px;
+  height: auto;
+}
+
+em {
+  color: white;
+}
+
+#museo {
+  color: white;
+}
+
+#LogineRegistrazione {
+  display: flex;
+  justify-content: space-between;
+  border: 2px;
+}
+
+#LoginRegistrazione {
+  margin: 15px;
+  border-radius: 200px;
+  width: 80px;
+  text-align: center;
+  border: 2px solid white;
+}
+
+#LoginRegistrazione {
+  margin: 15px;
+  border-radius: 200px;
+  width: 80px;
+  text-align: center;
+  border: 2px solid white;
+}
+
+#crediti {
+  color: white;
+}
+
+footer {
+  margin-top: 3%;
+  background-color: black;
+  text-align: center;
+}

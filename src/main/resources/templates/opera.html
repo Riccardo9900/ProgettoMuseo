@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments/base.html :: headerfiles(title='Opera')">
+</head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<nav th:replace="fragments/base.html :: nav"></nav>
+	<section th:object="${opera}">
+		<div id="titoloopera">
+			<strong><span th:text="*{titolo}">La notte stellata</span></strong>
+		</div>
+		<div id="opera">
+			<img
+				th:src="@{'/images/Opere/' + *{artista.nome} + '_' + *{artista.cognome} + '_' + *{titolo} + '.jpg'}"
+				width=100% height=100%></img>
+		</div>
+		<div id="autore">
+			<a href="artista.html" th:href="@{'/artista/'+*{artista.id}}"
+				th:text="|*{artista.nome} *{artista.cognome}|">Vincent Van Gogh</a>,
+			<span th:text="*{annoRealizzazione}">1889</span>
+		</div>
+		<div id="descrizione">
+			<span th:text="*{descrizione}">Dopo l'episodio di auto
+				mutilazione dell'orecchio, van Gogh attraversò vari episodi e alla
+				fine accettò di farsi ricoverare nella clinica per alienati mentali
+				di Saint-Rémy de Provence. Durante l'internamento, preso da un vero
+				e proprio furore creativo, van Gogh eseguì una notevole mole di
+				dipinti, nei quali si emancipò dalle imposizioni impressioniste e
+				approdò a uno stile simbolico che, partendo dalla sua alienazione,
+				rielaborava la realtà in quadri che concedevano ampio spazio alla
+				sua immaginazione. Per quanto concerne la data esatta
+				dell'esecuzione della Notte stellata la maggior parte degli esperti
+				sono concordi nel sostenere che sia stata dipinta poco prima
+				dell'alba del 19 giugno 1889, durante l'anno di permanenza nella
+				clinica psichiatrica di Saint-Rémy-de-Provence: questa datazione
+				sarebbe avallata da una lettera di pugno dello stesso Vincent,
+				desideroso di comunicare al fratello di aver realizzato «un
+				paesaggio con gli ulivi e anche uno studio di un cielo stellato»</span>
+		</div>
+		<div id="modifica" sec:authorize="hasAuthority('ADMIN')">
+			<a th:href="@{'edit/' + *{id}}"><button>Modifica</button></a>
+		</div>
+	</section>
+	<footer th:replace="fragments/base.html :: fondoPagina"> </footer>
+</body>
+</html>

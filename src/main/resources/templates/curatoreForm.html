@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments/base.html :: headerfiles(title='Form')">
+</head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<nav th:replace="fragments/base.html :: nav"></nav>
+	<section>
+		<div id="corpo">
+			<h1>Inserisci i dati del curatore</h1>
+			<form th:action="@{'/collezioni'}" method="POST"
+				th:object="${curatore}">
+				<div>
+					<div>
+						<span><input type="hidden" th:field="*{id}" /></span>
+					</div>
+
+					<div>
+						<span>Nome:</span> <span><input type="text"
+							th:field="${curatore.nome}" /></span> <span
+							th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"
+							th:style="'color:red'"></span>
+					</div>
+					<div>
+						<span>Cognome:</span> <span><input type="text"
+							th:field="${curatore.cognome}" /></span> <span
+							th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"
+							th:style="'color:red'"></span>
+					</div>
+					<div>
+						<span>Matricola:</span> <span><input type="text"
+							th:field="${curatore.matricola}" /></span> <span
+							th:if="${#fields.hasErrors('matricola')}"
+							th:errors="*{matricola}" th:style="'color:red'"></span>
+					</div>
+					<div>
+						<span>Data di nascita:</span> <span><input type="date"
+							th:field="${curatore.dataDiNascita}" /></span>
+					</div>
+					<div>
+						<span>Luogo di nascita:</span> <span><input type="text"
+							th:field="${curatore.luogoDiNascita}" /></span>
+					</div>
+					<div>
+						<span>Email:</span> <span><input type="text"
+							th:field="${curatore.email}" /></span>
+					</div>
+					<div>
+						<span>Numero di telefono:</span> <span><input type="text"
+							th:field="${curatore.numeroDiTelefono}" /></span>
+					</div>
+					<div>
+						<span><button type="submit">Invia</button></span>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+</body>
+</html>

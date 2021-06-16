@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="fragments/base.html :: headerfiles(title='Artista')">
+</head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<nav th:replace="fragments/base.html :: nav"></nav>
+	<section>
+		<div id="Artista" th:object="${artista}">
+			<strong> <span th:text="*{nome}">Vincent</span> <span
+				th:text="*{cognome}">Van Gogh</span>
+			</strong>
+			<div id="modifica" sec:authorize="hasAuthority('ADMIN')">
+				<a th:href="@{'edit/' + *{id}}"><button>Modifica</button></a>
+			</div>
+		</div>
+		<div id="PaginaArtista" th:object="${artista}">
+			<div id="anagrafica">
+				<div id="anagrafica1">
+					<div class="Elenco">
+						<ul>
+							<li><strong>Nome</strong>: <span th:text="*{nome}"></span></li>
+							<li><strong>Cognome</strong>: <span th:text="*{cognome}"></span></li>
+							<li><strong>Data di nascita</strong>: <span
+								th:if="*{dataDiNascita}" th:text="*{dataDiNascita}"></span><span
+								th:unless="*{dataDiNascita}">Attualmente non disponibile.
+									Se conosci questa informazione contatta l'amministratore per
+									inserirla!</span></li>
+							<li><strong>Luogo di nascita</strong>: <span
+								th:text="*{luogoDiNascita}"></span></li>
+							<li><strong>Data di morte</strong>: <span
+								th:text="*{dataDiMorte}"></span></li>
+							<li><strong>Luogo di morte</strong>: <span
+								th:text="*{luogoDiMorte}"></span></li>
+							<li><strong>Nazionalita</strong>: <span
+								th:text="*{nazionalita}"></span></li>
+						</ul>
+					</div>
+					<div id="immagineArtista">
+						<img id="immagineArtista"
+							th:src="@{'/images/Artisti/' + *{nome} + '_' + *{cognome} + '.jpg'}"></img>
+					</div>
+				</div>
+				<div id="titoloBiografia">
+					<strong>Biografia</strong>
+				</div>
+				<div id="biografia">
+					<span th:text="*{biografia}">Notizie della famiglia dei van
+						Gogh si rintracciano a L'Aia fin dalla metà del XVII secolo e a
+						partire dal Settecento quella famiglia trasmise di padre in figlio
+						il mestiere di orefice. Nel primo Ottocento si ha notizia di un
+						Vincent van Gogh (1789-1874), pastore calvinista e padre di undici
+						figli che praticavano diverse attività: tre di loro erano mercanti
+						d'arte, mentre si sa che Theodorus van Gogh (1822-1885) dal 1º
+						aprile 1849 fu un pastore della società riformata olandese,
+						residente presso la piccola comunità di Groot-Zundert, un
+						villaggio vicino Brabante ,di circa seimila abitanti. Sposatosi
+						nel 1851 con Anna Cornelia Carbentus (1819-1907), figlia di un
+						facoltoso rilegatore di libri della corte olandese, Theodorus
+						generò con lei un figlio, Vincent Willem Maria, che tuttavia il 30
+						marzo 1852 fu partorito già morto. Esattamente l'anno dopo la
+						Carbentus diede alla luce il primo figlio, il futuro pittore, che
+						verrà battezzato Vincent Willem in ricordo del defunto fratellino:
+						«fin dal primo giorno, quindi, la vita di Vincent fu segnata da
+						una triste coincidenza» commenta il critico Rainer Metzger
+						«numerosi psicologi, per contro, non mancarono di sottolineare che
+						questo bambino, in un certo senso, era venuto al mondo
+						nell'anniversario della morte di suo fratello e videro in ciò la
+						radice dell'inclinazione dell'artista al paradosso».[11] Theodorus
+						e Cornelia, in ogni caso, ebbero altri cinque figli: Anna Cornelia
+						(1855-1930), Théodorus junior, ben presto denominato semplicemente
+						Théo (1º maggio 1857-25 gennaio 1891), Elisabeth (1859-1936),
+						Wilhelmina Jacoba (1862-1941) e Cornelis (1867-1900).[12] Dal
+						gennaio 1861 al settembre 1864 Vincent van Gogh studiò alla scuola
+						del paese e dal 1º ottobre 1864 frequentò un collegio della vicina
+						Zevenbergen, dove apprese il francese, l'inglese, il tedesco e
+						l'arte del disegno. Dal 1866 frequentò un'altra scuola
+						presbiteriale, la scuola secondaria di Tilburg, con professore di
+						arte il pittore Constant Cornelis Huijsmans. Ma il 19 marzo 1868,
+						a causa dello scarso rendimento nonché per via di alcuni problemi
+						economici sofferti dal padre, ritornò a Zundert senza aver
+						concluso gli studi.</span>
+				</div>
+			</div>
+			<div class="Opera">
+				<div id="opera" th:each="opera : ${opere}">
+					<div id="titoloOpera">
+						<img
+							th:src="@{'/images/Opere/' + *{nome} + '_' + *{cognome} + '_' + ${opera.titolo} + '.jpg'}"
+							width=100%; height=100%></img>
+					</div>
+					<div id="titoloOpera">
+						<div class="paginaOpera">
+							<strong><a href="opera.html"
+								th:href="@{'/opera/'+${opera.id}}" th:text="${opera.titolo}">La
+									notte stellata</a></strong>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer th:replace="fragments/base.html :: fondoPagina"> </footer>
+</body>
+</html>

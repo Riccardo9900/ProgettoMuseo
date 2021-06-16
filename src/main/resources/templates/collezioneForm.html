@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments/base.html :: headerfiles(title='Form')">
+</head>
+<body>
+
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<nav th:replace="fragments/base.html :: nav"></nav>
+	<section>
+		<div id="corpo">
+			<h1>Inserisci i dati della collezione</h1>
+			<form th:action="@{'/collezione/' + *{id}}" method="POST"
+				th:object="${collezione}">
+				<div>
+					<div>
+						<span>Nome: </span> <span><input type="text"
+							th:field="${collezione.nome}" /></span> <span
+							th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"
+							th:style="'color:red'"></span>
+					</div>
+					<div>
+						<span>Descrizione: </span> <span><textarea
+								th:field="${collezione.descrizione}" th:text="*{descrizione}"></textarea></span>
+					</div>
+					<div>
+						<span><input type="hidden"
+							th:field="${collezione.curatore}"></span>
+					</div>
+					<div>
+						<span>Curatore: </span><input type="hidden"
+							th:field="${collezione.curatore}"
+							th:text="|${collezione.curatore.nome} ${collezione.curatore.cognome}|"></input>
+					</div>
+					<div>
+						<span><button type="submit">Invia</button></span>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+</body>
+</html>

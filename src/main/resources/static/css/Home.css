@@ -1,0 +1,57 @@
+section {
+  display: flex;
+  justify-content: space between;
+  flex-direction: column;
+  height: 50% px;
+}
+
+div.opera {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  height: 20% px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+div.Opera1 {
+  background-image: url('/images/Opere/Claude_Lorrain_Porto al tramonto.jpg');
+  background-size: cover;
+  width: calc(50% - 10px);
+  border: 2px solid black;
+}
+div.Opera2 {
+  background-image: url('/images/Opere/Nicolas_Poussin_The winter.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: calc(50% - 10px);
+  border: 2px solid black;
+}
+div.Opera3 {
+  background-image: url('/images/Opere/Nicolas_Poussin_Paesaggio con calma.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: calc(50% - 10px);
+  border: 2px solid black;
+}
+div.Opera4 {
+  background-image: url('/images/Opere/Nicolas_Poussin_Ispirazione del poeta.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: calc(50% - 10px);
+  border: 2px solid black;
+}
+
+div.vediOpera {
+  margin-top: 50%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 3%;
+  text-align: center;
+  border: 2px solid white;
+  height: auto;
+}
+
+#vediOpere {
+  color: white;
+}

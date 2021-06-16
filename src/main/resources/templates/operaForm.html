@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments/base.html :: headerfiles(title='Form')">
+</head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<nav th:replace="fragments/base.html :: nav"></nav>
+	<section>
+		<div id="corpo">
+			<h1>Inserisci i dati dell'opera</h1>
+			<form th:action="@{'/opera/' + *{id}}" method="POST"
+				th:object="${opera}">
+				<div>
+					<div>
+						<span>Titolo: </span> <span><input type="text"
+							th:field="*{titolo}" /></span> <span
+							th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"
+							th:style="'color:red'"></span>
+					</div>
+					<div>
+						<span>Anno: </span> <span><input type="text"
+							th:field="*{annoRealizzazione}" /></span> <span
+							th:if="${#fields.hasErrors('annoRealizzazione')}"
+							th:errors="*{annoRealizzazione}" th:style="'color:red'"></span>
+					</div>
+					<div>
+						<span>Descrizione: </span> <span><textarea
+								th:field="*{descrizione}" th:text="*{descrizione}"></textarea></span>
+					</div>
+					<div>
+						<span>Artista: </span><span><input type="hidden"
+							th:field="*{artista}"
+							th:text="|*{artista.nome} *{artista.cognome}|"></span>
+					</div>
+					<div>
+						<span>Collezione: </span><span><input type="hidden"
+							th:field="*{collezione}" th:text="*{collezione.nome}"></span>
+					</div>
+					<div>
+						<span><button type="submit">Invia</button></span>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+</body>
+</html>

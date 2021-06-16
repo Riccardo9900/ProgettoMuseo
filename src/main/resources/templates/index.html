@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/base.html :: headerfiles(title='Home')"> </head>
+<body>
+	<header th:replace="fragments/base.html :: intestazione"></header>
+	<nav th:replace="fragments/base.html :: nav"></nav>
+	<section>
+		<div class="opera">
+			<div class="Opera1">
+				<div class="vediOpera">
+					<a th:href="'/opera/4'"><em id="vediOpere">Porto al tramonto</em></a>
+				</div>
+			</div>
+			<div class="Opera2">
+				<div class="vediOpera">
+					<a th:href="'/opera/8'"><em id="vediOpere">The winter</em></a>
+				</div>
+			</div>
+		</div>
+		<div class="opera">
+			<div class="Opera3">
+				<div class="vediOpera">
+					<a th:href="'/opera/9'"><em id="vediOpere">Paesaggio con calma</em></a>
+				</div>
+			</div>
+			<div class="Opera4">
+				<div class="vediOpera">
+					<a th:href="'/opera/13'"><em id="vediOpere">L'ispirazione del poeta</em></a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer th:replace="fragments/base.html :: fondoPagina"></footer>
+</body>
+</html>

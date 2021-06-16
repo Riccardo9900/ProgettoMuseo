@@ -1,0 +1,87 @@
+section {
+	display: flex;
+	flex-direction: column;
+	background-color: lightGrey;
+	margin-top: 3%;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+#Artista {
+	margin-top: 3%;
+	width: 85%;
+	font-size: 200%;
+	text-align: center;
+}
+
+#PaginaArtista {
+	margin-top: 3%;
+	display: flex;
+	justify-content: space-between;
+}
+
+div.Elenco {
+	width: calc(50% + 40px);
+	text-align: center;
+}
+
+#anagrafica {
+	display: flex;
+	flex-direction: column;
+	width: 980px;
+}
+
+#anagrafica1 {
+	display: flex;
+	justify-content: space-between;
+}
+
+ul {
+	list-style: none;
+	margin-left: 5%;
+}
+
+li {
+	font-size: 100%;
+	margin-top: 4%;
+}
+
+#immagineArtista {
+	width: 275px;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+#titoloBiografia {
+	margin-top: 3%;
+	text-align: center;
+}
+
+#biografia {
+	margin-bottom: 2%;
+	margin-top: 2%;
+	margin-left: 7%;
+}
+
+div.Opera {
+	border: 2px solid black;
+	height: 15%;
+	width: 15%;
+	margin-right: 0.5%;
+	display: flex;
+	flex-direction: column;
+}
+
+#opera {
+	border: 2px solid black;
+	text-align: center;
+}
+
+#titoloOpera {
+	text-align: center;
+}
+
+div.paginaOpera {
+	margin-top: 2%;
+	text-align: center;
+}
